@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	float a,b,c, R1,R2,d;
+	printf("Enter the 3 coefficients of a quadratic equation: ");
+	scanf("%f%f%f",&a,&b,&c);
+	if(a==0)
+		printf("Value of a should not be zero");
+	else
+	{
+		d=b*b-4*a*c;
+		if(d>0)
+		{
+			R1=(-b+sqrt(d))/(2*a);
+			R2=(-b-sqrt(d))/(2*a);
+			printf("Roots are REAL and UNEQUAL\n");
+			printf("Root1= %f",R1);
+			printf("Root2= %f",R2);
+		}
+		else if(d==0)
+	    {
+			R1=b/(2*a);
+			printf("Roots are REAL and EQUAL\n");
+			printf("Root1= %f",R1);
+		}
+		else
+			printf("Roots are COMPLEX and IMAGINARY\n");
+	}
+	return 0;
+ }
