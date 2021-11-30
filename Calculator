@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{
+	char choice;
+	int a,b;
+	printf("\nEnter two numbers: ");
+	scanf("%d%d",&a,&b);
+	do
+	{
+		printf("Number1= %d\n",a);
+		printf("Number2= %d",b);
+		printf("\n\n\t Operator Menu");
+		printf("\n\t1. Addition (+)");
+		printf("\n\t2. Subtraction (-)");
+		printf("\n\t3.Multiplication (*)");
+		printf("\n\t4. Division (/)");
+		printf("\n\t5. Exit (E)");
+	    printf("\nEnter the option number or operator: ");
+	    scanf("%c",&choice);
+	    scanf("%c",&choice);
+	    switch(choice)
+	    {
+			case '1':
+			case '+':printf("Sum= %d\n",a+b);
+			break;
+			case '2':
+			case '-':printf("Difference= %d\n",a-b);
+			break;
+			case '3':
+			case '/':printf("Qouicient= %d\n",a/b);
+			break;
+			case '4':
+			case '%':printf("Reminder= %d\n",a%b);
+			break;
+			case '5':
+			case 'E':
+			case 'e':printf("Thank you for using the program");
+			break;
+			default :printf("Invalid choice!!\n");
+			break;
+		}
+	}while(choice!='5' && choice!='E' && choice!='e');
+	return 0;
+}
