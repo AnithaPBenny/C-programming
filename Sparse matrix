@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+    int row=0,column=0,r=0,c=0; 
+    int sparseMatrix[10][10];
+  printf("Enter the number of rows and columns of array: ");
+  scanf("%d%d",&r,&c);
+  printf("Enter the elements of array: ");
+  for(row=0;row<r;row++)
+  {
+    for(column=0; column<c;column++)
+    { 
+      scanf("%d",&sparseMatrix[row][column]);
+    }
+    
+  }
+   
+    int size = 0;
+    for (int row = 0; row < r; row++){
+        for (int column = 0; column < c; column++){
+            if (sparseMatrix[row][column] != 0){
+                size++;}}}
+ 
+    int resultMatrix[3][size];   
+    int k = 0;
+    for (int row = 0; row < r; row++){
+        for (int column = 0; column < c; column++){
+            if (sparseMatrix[row][column] != 0)
+            {   
+                resultMatrix[0][k] = row;
+                resultMatrix[1][k] = column;
+                resultMatrix[2][k] = sparseMatrix[row][column];
+                k++;
+            }}}
+    for(row=0;row<r;row++)
+    {
+    for(column=0; column<c;column++)
+    { 
+      printf("%d\t",sparseMatrix[row][column]);
+    }
+     printf("\n");
+   }
+   
+    
+    printf("\nTriplet Representation : \n");
+    for (int row=0; row<size; row++)
+    {
+        for (int column = 0; column<3; column++){
+            printf("%d\t",resultMatrix[column][row]);}
+
+        printf("\n");
+    }
+    return 0;
+}
