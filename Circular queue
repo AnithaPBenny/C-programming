@@ -1,0 +1,95 @@
+#include <stdio.h>
+#define MAX 10
+void insert();
+void delete();
+void display();
+int Q[MAX];
+int r = - 1;
+int f= - 1;
+int main()
+{
+    int choice;
+    printf ("CIRCULAR QUEUE OPERATION\n");
+    while (1)
+    {
+        printf("\n------------------------------------ \n");
+        printf("       1.Enqueue \n");
+        printf("       2.Dequeue \n");
+        printf("       3.Display all elements of queue \n");
+        printf("       4.Quit ");
+        printf("\n------------------------------------");
+        printf("\nEnter your choice : ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+            case 1:insert();
+                   break;
+            case 2:delete();
+                   break;
+            case 3:display();
+                   break;
+            case 4:return 0;
+            
+            default:printf("Wrong choice \n");
+        }
+    }
+}
+ 
+void insert()
+{  
+    int add_item;
+    if ((f==0 && r == MAX - 1) ||(f==r+1))
+    {
+       printf("Queue Overflow \n");
+    }
+    else
+    {
+        if (f == - 1)
+        {
+           f= r = 0;
+        }
+        else
+        {
+           r= (r+1)%MAX;
+        }
+        printf("Inset the element in queue : ");
+        scanf("%d", &add_item);
+        Q[r] = add_item;
+    }
+}
+ 
+void delete()
+{   
+    if (f == - 1)
+    {
+        printf("Queue Underflow \n");
+        return;
+    }
+    else
+    {
+        int data= Q[f];
+        if(f==r)
+        {
+          f=r=-1;
+        }
+        else
+        {
+          f=(f+1)%MAX;
+        }
+        printf("Element deleted from queue is : %d\n",data);
+    }
+}
+ 
+void display()
+{
+    int i;
+    if (f == - 1)
+        printf("Queue is empty \n");
+    else
+    {
+        printf("Queue is : \n");
+        for (i = f; i <= r; i++)
+            printf("%d ", Q[i]);
+        printf("\n");
+    }
+}
